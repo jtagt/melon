@@ -6,9 +6,21 @@
 
 <body id="body">
     <img src="https://cdn.discordapp.com/avatars/270352691924959243/f7a0c6be645950b8179f429ebefa6180.png" class="bruh">
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/TKfS5zVfGBc?t=126&autoplay=1">
+    </iframe>
+
+    <img class="gg" src="https://thumbs.gfycat.com/JollyUnequaledIndochinesetiger-small.gif">
+
+    <h1>HELLO WELCOME TO NOTNOTMELON'S WEBSITE</h1>
 </body>
 
 <script>
+    document.onload = () => {
+        setTimeout(() => {
+            document.getElementById("playAudio").play();
+        }, 1000);
+    }
+
     let scaleX = 1;
     let scaleY = 1;
 
@@ -24,6 +36,12 @@
             .to(".bruh", { x: 0, duration: 1 })
             .to(".bruh", { y: 0, duration: 1 });
     }
+
+    setInterval(() => {
+        const tl = gsap.timeline();
+        tl.to(".gg", { x: 100, duration: .5 })
+        .to(".gg", { x: 0, duration: .5 })
+    }, 1000);
 
     const randomResize = (scaleY = 1, scaleX = 1) => {
         const scaleXNew = randInt(1, 25);
