@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+</head>
+
+<body id="body">
+    <img src="https://cdn.discordapp.com/avatars/270352691924959243/f7a0c6be645950b8179f429ebefa6180.png" class="bruh">
+</body>
+
+<script>
+    let scaleX = 1;
+    let scaleY = 1;
+
+    const randInt = (min, max) => {
+        return Math.random() * (max - min) + min;
+    }
+
+    const goCrazy = () => {
+        const tl = gsap.timeline();
+
+        tl.to(".bruh", { x: document.getElementById("body").clientWidth - 128, duration: 1 })
+            .to(".bruh", { y: document.getElementById("body").clientHeight - 128, duration: 1 })
+            .to(".bruh", { x: 0, duration: 1 })
+            .to(".bruh", { y: 0, duration: 1 });
+    }
+
+    const randomResize = (scaleY = 1, scaleX = 1) => {
+        const scaleXNew = randInt(1, 25);
+        const scaleYNew = randInt(1, 25);
+
+        TweenMax.fromTo(".bruh", 1, { scaleY: 1, autoAlpha: 0, ease: Linear.easeNone }, { scaleY: scaleYNew, scaleX: scaleXNew, autoAlpha: 1 });
+
+        scaleX = scaleXNew;
+        scaleY = scaleYNew;
+    }
+
+    setInterval(() => {
+        randomResize();
+    }, 1000);
+
+    goCrazy();
+
+    setInterval(() => {
+        goCrazy();
+    }, 4000);
+</script>
+
+</html>
